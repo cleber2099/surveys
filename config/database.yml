@@ -1,0 +1,20 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
+  username: postgres
+  password: 2099
+
+development:
+  <<: *default
+  database: surveytt
+
+test:
+  <<: *default
+  database: surveytt_test
+
+production:
+  <<: *default
+  database: surveytt
+  username: postgres
+  password: <%= ENV['DATABASE_PASSWORD'] %>
